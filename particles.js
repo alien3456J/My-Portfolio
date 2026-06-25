@@ -6,10 +6,10 @@ function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
+
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
-// Create particles
 for (let i = 0; i < 80; i++) {
   particles.push({
     x: Math.random() * canvas.width,

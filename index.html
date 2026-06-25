@@ -8,18 +8,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Background canvas -->
   <canvas id="bg"></canvas>
 
-  <!-- Content wrapper -->
   <div class="content">
-    <!-- Profile -->
     <div class="profile">
       <img src="./images/AlienPFP.png" alt="Avatar" class="avatar" />
       <h1>Alien</h1>
       <div class="role">3D Modeler & Game Developer</div>
-      
-      <!-- Social Links -->
+
       <div class="social-links">
         <a href="https://www.roblox.com/users/383427725/profile" target="_blank" class="social-link">
           <img src="./images/Roblox_Logo.png" alt="Roblox" />
@@ -37,14 +33,13 @@
       </div>
     </div>
 
-    <!-- Buttons -->
     <div class="buttons">
       <button class="active" onclick="showSection('about', event)">About Me</button>
       <button onclick="showSection('experience', event)">Experience</button>
       <button onclick="showSection('projects', event)">Projects</button>
+      <button onclick="showSection('scripts', event)">Scripts</button>
     </div>
 
-    <!-- Sections -->
     <div id="about" class="card">
       <h2>About Me</h2>
       <p>Hello! I am a 3D modeler and developer interested in creating passion projects and serious games.</p>
@@ -52,10 +47,7 @@
 
     <div id="experience" class="card hidden">
       <h2>Experience</h2>
-      <p>
-        Over 5 years of experience in scripting and 3D modeling, contributing to a
-        wide range of projects in game design and web development.
-      </p>
+      <p>Over 5 years of experience in scripting and 3D modeling, contributing to a wide range of projects in game design and web development.</p>
       <div class="stars">⭐⭐⭐⭐⭐</div>
     </div>
 
@@ -76,14 +68,82 @@
         <img src="./images/Pipes.webp" alt="Project 13" />
         <img src="./images/Vent.webp" alt="Project 14" />
         <img src="./images/blockers.webp" alt="Project 15" />
-        
       </div>
     </div>
+
+    <div id="scripts" class="card hidden">
+      <h2>Scripts</h2>
+      <p style="color:#aaa; margin-bottom:24px; font-size:14px;">Lua scripts built for the Maze Runner: Scorch Trials game</p>
+      <div class="script-grid">
+
+        <div class="script-card">
+          <div class="script-video">
+            <span class="script-badge">LocalScript</span>
+            <video controls poster="./images/door-interaction-thumb.png">
+              <source src="./videos/door-interaction-demo.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="script-info">
+            <div class="script-name">Door Interaction System</div>
+            <div class="script-desc">Handles the full client-side door flow — proximity detection, key validation against the player's inventory, E-key prompts via BillboardGui, and sound feedback. Fires server remotes to unlock or open doors and listens for responses to update state locally.</div>
+            <div class="script-tags">
+              <span>LocalScript</span>
+              <span>RemoteEvent</span>
+              <span>BillboardGui</span>
+              <span>TweenService</span>
+              <span>InventorySystem</span>
+            </div>
+          </div>
+          <div class="script-code">local TryOpenDoor = Remotes:WaitForChild(<span style="color:#ff6666">"TryOpenDoor"</span>)</div>
+        </div>
+
+        <div class="script-card">
+          <div class="script-video">
+            <span class="script-badge">ServerScript</span>
+            <video controls poster="./images/door-server-thumb.png">
+              <source src="./videos/door-server-demo.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="script-info">
+            <div class="script-name">Door Server System</div>
+            <div class="script-desc">Server-side authority for the door system. Manages per-player key inventories, validates unlock attempts, tweens doors open on a hinge pivot, and broadcasts state changes to all clients. Prevents duplicate key pickups with a server-side guard.</div>
+            <div class="script-tags">
+              <span>ServerScript</span>
+              <span>RemoteEvent</span>
+              <span>TweenService</span>
+              <span>ServerScriptService</span>
+            </div>
+          </div>
+          <div class="script-code">local openCFrame = hingePos * <span style="color:#ff6666">CFrame.Angles</span>(0, math.rad(90), 0)</div>
+        </div>
+
+        <div class="script-card">
+          <div class="script-video">
+            <span class="script-badge">LocalScript</span>
+            <video controls poster="./images/inspect-thumb.png">
+              <source src="./videos/inspect-demo.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="script-info">
+            <div class="script-name">Item Inspect System</div>
+            <div class="script-desc">Lets players pick up and rotate key items in 3D using mouse input. Freezes player movement, locks the camera, and smoothly lerps the item in front of the viewport with a blur effect. Supports both world pickups and re-inspecting items already in the inventory.</div>
+            <div class="script-tags">
+              <span>LocalScript</span>
+              <span>RunService</span>
+              <span>BlurEffect</span>
+              <span>CFrame</span>
+              <span>InventorySystem</span>
+            </div>
+          </div>
+          <div class="script-code">local newCF = part.CFrame:<span style="color:#ff6666">Lerp</span>(target, LERP_SPEED)</div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
-  <!-- Scripts -->
   <script src="particles.js"></script>
   <script src="script.js"></script>
 </body>
-
 </html>
