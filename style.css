@@ -284,3 +284,19 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+/* Experience text */
+.experience-text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  line-height: 1.8;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.experience-text strong {
+  color: #ff6666;
+}
